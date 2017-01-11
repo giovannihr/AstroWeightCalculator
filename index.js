@@ -91,33 +91,45 @@ Calculate Weight function
 
 function calculateWeight() {
 
+    var resultsObject = {};
     var newPlanetWeight;
     var inputElement = document.getElementById("inputElement");
     var inputElementValue = inputElement.value;
     var selectElement = document.getElementById("selectElement");
     var selectElementIndex = selectElement.selectedIndex;
+    var newPlanetGravity;
+    var planetName;
 
     for (var i = 0; i < planets.length; i += 1) {
 
         //if else statement to catch index value
         if (selectElementIndex === i) {
 
-            var newPlanetGravity = planets[i].gravity;
+            newPlanetGravity = planets[i].gravity;
+
+            planetName = planets[i].planet;
             break;
 
-
-        } else {
-            console.log('error ocurred on calculateWeight function')
         }
+        /*else {
+    console.log('error ocurred on calculateWeight function')
+}
+*/
 
 
     }
 
     newPlanetWeight = inputElementValue * newPlanetGravity;
 
-    //console.log(newPlanetWeight);
 
-    return newPlanetWeight;
+
+    resultsObject['earthWeight'] = inputElementValue;
+    resultsObject['planetSelected'] = planetName;
+    resultsObject['newPlanetWeight'] = newPlanetWeight;
+
+
+
+    return resultsObject;
 }
 
 
@@ -127,11 +139,16 @@ Populate empty paragraph function
 */
 //-------------
 
-/*function populateResultsParagraph() {
+function populateResultsParagraph() {
 
     var paragraphElement = document.getElementById("resultsParagraph");
-    var weightResults = calculateWeight();
-    //var message = 
+    var earthWeight = calculateWeight().earthWeight;
+    var planetSelected = calculateWeight().planetSelected;
+    var newPlanetWeight = calculateWeight().newPlanetWeight;
 
 
-}*/
+    var message = "Your weight on Earth is " + earthWeight + ", but if you travelled to " + planetSelected + " your weight would be " + newPlanetWeight;
+    // your weight on earth is $inputweight but is you travelled to $planetname, your weight would be $newplanetweight
+    paragraphElement.innerHTML = message;
+
+}
