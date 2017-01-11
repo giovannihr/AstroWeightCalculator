@@ -11,3 +11,24 @@ var planets = [ //array of 11 objects
     { planet: 'Neptune', gravity: 1.148 },
     { planet: 'Pluto', gravity: 0.06 }
 ];
+
+
+
+function reverseString(text) {
+    // write code here
+    var newString = '';
+
+    for (var i = text.length - 1; i >= 0; i--) {
+
+        newString += text[i];
+
+
+    }
+
+    return newString
+}
+
+
+var title = document.getElementById("title");
+//console.log(title.innerHTML);
+title.innerHTML = reverseString(title.innerHTML);
