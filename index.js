@@ -14,6 +14,14 @@ var planets = [ //array of 11 objects
 
 
 
+
+//-----------------------------
+/*
+Title functions
+*/
+//-----------------------------
+
+
 function reverseString(text) {
     // write code here
     var newString = '';
@@ -29,6 +37,47 @@ function reverseString(text) {
 }
 
 
-var title = document.getElementById("title");
-//console.log(title.innerHTML);
-title.innerHTML = reverseString(title.innerHTML);
+function reverseTitleElement() {
+
+    var title = document.getElementById("title");
+    title.innerHTML = reverseString(title.innerHTML);
+
+}
+
+
+reverseTitleElement();
+
+//-----------------------------
+/*
+Select Element Options functions
+*/
+//-----------------------------
+
+/*var loopPlanetsArray = function() {
+
+        for (var i = 0; i < planets.length; i += 1) {
+            console.log(planets[i];
+            }
+
+        }*/
+
+
+
+
+function populateOptionsElement() {
+
+    var selectElement = document.getElementById("selectElement");
+    for (var i = 0; i < planets.length; i += 1) {
+
+        var optionElement = document.createElement("option");
+        selectElement.appendChild(optionElement);
+        var planetObject = planets[i];
+        optionElement.innerHTML = planetObject.planet;
+        optionElement.setAttribute('value', planetObject.planet);
+        // console.log(planets[0].planet);
+    }
+
+}
+
+populateOptionsElement();
+//console.log(planets[0].planet)
