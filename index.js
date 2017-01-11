@@ -79,5 +79,59 @@ function populateOptionsElement() {
 
 }
 
+
 populateOptionsElement();
 //console.log(planets[0].planet)
+
+//--------------
+/*
+Calculate Weight function
+*/
+//--------------
+
+function calculateWeight() {
+
+    var newPlanetWeight;
+    var inputElement = document.getElementById("inputElement");
+    var inputElementValue = inputElement.value;
+    var selectElement = document.getElementById("selectElement");
+    var selectElementIndex = selectElement.selectedIndex;
+
+    for (var i = 0; i < planets.length; i += 1) {
+
+        //if else statement to catch index value
+        if (selectElementIndex === i) {
+
+            var newPlanetGravity = planets[i].gravity;
+            break;
+
+
+        } else {
+            console.log('error ocurred on calculateWeight function')
+        }
+
+
+    }
+
+    newPlanetWeight = inputElementValue * newPlanetGravity;
+
+    //console.log(newPlanetWeight);
+
+    return newPlanetWeight;
+}
+
+
+//-------------
+/*
+Populate empty paragraph function
+*/
+//-------------
+
+/*function populateResultsParagraph() {
+
+    var paragraphElement = document.getElementById("resultsParagraph");
+    var weightResults = calculateWeight();
+    //var message = 
+
+
+}*/
