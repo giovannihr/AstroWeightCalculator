@@ -120,6 +120,7 @@ function calculateWeight() {
     }
 
     newPlanetWeight = inputElementValue * newPlanetGravity;
+    newPlanetWeight = roundToTwoDecimals(newPlanetWeight);
 
 
 
@@ -150,5 +151,22 @@ function populateResultsParagraph() {
     var message = "Your weight on Earth is " + earthWeight + ", but if you travelled to " + planetSelected + " your weight would be " + newPlanetWeight;
     // your weight on earth is $inputweight but is you travelled to $planetname, your weight would be $newplanetweight
     paragraphElement.innerHTML = message;
+
+}
+
+
+//
+/*
+Round a number to two decimals function
+*/
+//
+
+function roundToTwoDecimals(num) {
+
+    var result = Math.round(num * 100) / 100;
+
+    return result;
+
+
 
 }
